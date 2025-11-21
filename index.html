@@ -1,0 +1,2587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Sarayu ✨💕</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Handlee&family=Patrick+Hand&family=Shadows+Into+Light&display=swap');
+        
+        :root {
+            --blush: #f8c8dc;
+            --cream: #fff7ed;
+            --beige: #f0dfd8;
+            --nude: #d6b7a7;
+            --lavender: #e6d9ff;
+            --gold: #ffd88a;
+            --soft-shadow: rgba(214, 183, 167, 0.3);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Patrick Hand', cursive;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--blush) 100%);
+            overflow-x: hidden;
+            color: #5a4a42;
+        }
+        
+        /* SPARKLES CANVAS */
+        #sparkles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+        
+        /* SECTION 1 - DIARY COVER */
+        .diary-cover {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, var(--cream), var(--beige));
+        }
+        
+.book-cover {
+    width: 400px;
+    height: 500px;
+    background: url("a14.jpg") center/cover no-repeat;
+    border-radius: 20px;
+    box-shadow: 20px 20px 60px var(--soft-shadow), -20px -20px 60px rgba(255,255,255,0.5);
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+        
+        .book-cover.opening {
+            animation: bookOpen 1.5s forwards;
+        }
+        
+        @keyframes bookOpen {
+            0% { transform: rotateY(0deg); }
+            100% { transform: rotateY(-180deg); opacity: 0; }
+        }
+        
+        .book-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            color: var(--gold);
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            animation: titleGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,216,138,0.5); }
+            50% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 40px rgba(255,216,138,0.8); }
+        }
+        
+        .sticker {
+            position: absolute;
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+        
+        .heart-sticker { top: 20px; right: 30px; font-size: 40px; animation-delay: 0s; }
+        .star-sticker { top: 80px; left: 40px; font-size: 35px; animation-delay: 0.5s; }
+        .sparkle-sticker { bottom: 60px; right: 50px; font-size: 30px; animation-delay: 1s; }
+        .flower-sticker { bottom: 100px; left: 30px; font-size: 38px; animation-delay: 1.5s; }
+        
+        .open-btn {
+            margin-top: 40px;
+            padding: 20px 50px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 24px;
+            color: #5a4a42;
+            background: linear-gradient(145deg, var(--cream), var(--gold));
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 8px 8px 20px var(--soft-shadow), -8px -8px 20px rgba(255,255,255,0.8);
+            transition: all 0.3s ease;
+        }
+        
+        .open-btn:hover {
+            transform: scale(1.1) rotate(-2deg);
+            box-shadow: 12px 12px 30px var(--soft-shadow);
+        }
+        
+        /* SECTION 2 - TIMELINE */
+        .timeline-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: var(--cream);
+            background-image: 
+                repeating-linear-gradient(0deg, transparent, transparent 30px, rgba(214, 183, 167, 0.1) 30px, rgba(214, 183, 167, 0.1) 31px);
+            position: relative;
+        }
+        
+        .timeline-section::before {
+            content: '';
+            position: absolute;
+            left: 40px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: repeating-linear-gradient(to bottom, var(--blush) 0px, var(--blush) 10px, transparent 10px, transparent 20px);
+        }
+        
+        .timeline-moment {
+            margin: 60px auto;
+            max-width: 800px;
+            opacity: 0;
+            transform: translateX(-50px);
+            transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .timeline-moment.visible {
+            opacity: 1;
+            transform: translateX(0);
+        }
+        
+        .sticky-note {
+            background: var(--gold);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            transform: rotate(-2deg);
+            position: relative;
+            margin-bottom: 30px;
+        }
+        
+        .sticky-note::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 30px 30px 0;
+            border-color: transparent #c9a872 transparent transparent;
+        }
+        
+        .sticky-note p {
+            font-size: 22px;
+            line-height: 1.6;
+            color: #5a4a42;
+        }
+        
+        .polaroid {
+            background: white;
+            padding: 15px;
+            padding-bottom: 60px;
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.2);
+            transform: rotate(3deg);
+            display: inline-block;
+            margin: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .polaroid:hover {
+            transform: rotate(0deg) scale(1.05);
+            box-shadow: 12px 12px 30px rgba(0,0,0,0.3);
+            z-index: 10;
+        }
+        
+        .polaroid img {
+            width: 250px;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .polaroid-caption {
+            text-align: center;
+            margin-top: 15px;
+            font-family: 'Handlee', cursive;
+            font-size: 18px;
+            color: #5a4a42;
+        }
+        
+        .doodle-canvas {
+            width: 100%;
+            max-width: 600px;
+            height: 200px;
+            margin: 30px auto;
+            display: block;
+        }
+        
+        /* SECTION 3 - COLLAGE WALL */
+        .collage-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--lavender) 0%, var(--beige) 100%);
+            position: relative;
+        }
+        
+        .collage-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                radial-gradient(circle, rgba(214, 183, 167, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 64px;
+            text-align: center;
+            color: #8b6f5c;
+            margin-bottom: 50px;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.1);
+        }
+        
+        .shuffle-btn {
+            display: block;
+            margin: 0 auto 40px;
+            padding: 15px 40px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 20px;
+            color: white;
+            background: linear-gradient(145deg, #a68a7a, #8b6f5c);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .shuffle-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .collage-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            padding: 40px;
+        }
+        
+        .collage-photo {
+            position: relative;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        }
+        
+        .tape {
+            position: absolute;
+            width: 80px;
+            height: 25px;
+            background: rgba(255, 255, 255, 0.6);
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .tape::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(0,0,0,0.05);
+            top: 50%;
+        }
+        
+        /* SECTION 4 - MUSIC PLAYER */
+        .music-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: radial-gradient(circle at center, var(--cream), var(--blush));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .heart-player {
+            width: 300px;
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .heart-player:hover {
+            transform: scale(1.05);
+        }
+        
+        .heart-shape {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #ff6b9d, #c9184a);
+            position: relative;
+            transform: rotate(-45deg);
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: rotate(-45deg) scale(1); }
+            25% { transform: rotate(-45deg) scale(1.05); }
+            50% { transform: rotate(-45deg) scale(1); }
+        }
+        
+        .heart-shape::before,
+        .heart-shape::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(145deg, #ff6b9d, #c9184a);
+            border-radius: 50%;
+            position: absolute;
+        }
+        
+        .heart-shape::before {
+            top: -50%;
+            left: 0;
+        }
+        
+        .heart-shape::after {
+            left: 50%;
+            top: 0;
+        }
+        
+        .play-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(45deg);
+            font-size: 60px;
+            color: white;
+            z-index: 10;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .music-message {
+            margin-top: 50px;
+            max-width: 600px;
+            padding: 30px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            font-size: 22px;
+            line-height: 1.8;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .music-message.show {
+            opacity: 1;
+        }
+        
+        .music-note {
+            position: absolute;
+            font-size: 24px;
+            animation: floatUp 3s ease-out forwards;
+            pointer-events: none;
+        }
+        
+        @keyframes floatUp {
+            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
+        }
+        
+        /* SECTION 5 - LETTER */
+        .letter-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--beige) 0%, var(--lavender) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .envelope-container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            cursor: pointer;
+        }
+        
+        .envelope {
+            width: 100%;
+            height: 100%;
+            background: var(--cream);
+            border: 3px solid var(--nude);
+            position: relative;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.2);
+            transition: all 0.5s ease;
+        }
+        
+        .envelope-flap {
+            width: 0;
+            height: 0;
+            border-left: 200px solid transparent;
+            border-right: 200px solid transparent;
+            border-bottom: 150px solid #e8d5c4;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transform-origin: top center;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 5;
+        }
+        
+        .envelope.open .envelope-flap {
+            transform: rotateX(180deg);
+        }
+        
+        .ribbon {
+            position: absolute;
+            width: 120px;
+            height: 40px;
+            background: var(--blush);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 6;
+            transition: all 0.5s ease;
+        }
+        
+        .ribbon::before,
+        .ribbon::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            top: 0;
+        }
+        
+        .ribbon::before {
+            border-width: 20px 0 20px 30px;
+            border-color: transparent transparent transparent var(--blush);
+            left: -30px;
+        }
+        
+        .ribbon::after {
+            border-width: 20px 30px 20px 0;
+            border-color: transparent var(--blush) transparent transparent;
+            right: -30px;
+        }
+        
+        .envelope.open .ribbon {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+        
+        .letter {
+            width: 350px;
+            height: 500px;
+            background: var(--cream);
+            border: 2px solid var(--gold);
+            padding: 40px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            z-index: 4;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+            opacity: 0;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            overflow-y: auto;
+            border-radius: 10px;
+        }
+        
+        .letter.show {
+            transform: translate(-50%, -120%);
+            opacity: 1;
+        }
+        
+        .letter-content {
+            font-family: 'Handlee', cursive;
+            font-size: 18px;
+            line-height: 1.8;
+            color: #5a4a42;
+        }
+        
+        .letter-hearts {
+            text-align: center;
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        
+        .fold-back-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 30px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(145deg, #ff6b9d, #c9184a);
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.2);
+        }
+        
+        /* SECTION 6 - TREASURE CHEST */
+        .treasure-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: radial-gradient(circle at 50% 50%, var(--cream), var(--nude));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        
+        .treasure-chest {
+            width: 400px;
+            height: 300px;
+            background: linear-gradient(145deg, #8b6f5c, #6b5547);
+            border: 5px solid #5a4a42;
+            border-radius: 20px 20px 10px 10px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.3);
+        }
+        
+        .chest-lid {
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(145deg, #8b6f5c, #6b5547);
+            border: 5px solid #5a4a42;
+            border-radius: 20px 20px 0 0;
+            position: absolute;
+            top: 0;
+            left: -5px;
+            transform-origin: bottom;
+            transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2;
+        }
+        
+        .treasure-chest.open .chest-lid {
+            transform: rotateX(-120deg);
+        }
+        
+        .chest-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 216, 138, 0.8), transparent);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .treasure-chest.open .chest-glow {
+            opacity: 1;
+        }
+        
+        .sparkle-effect {
+            position: absolute;
+            font-size: 30px;
+            animation: sparkle 2s ease-in-out infinite;
+            pointer-events: none;
+        }
+        
+        @keyframes sparkle {
+            0%, 100% { opacity: 0; transform: scale(0); }
+            50% { opacity: 1; transform: scale(1); }
+        }
+        
+        .memory-items {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 60px;
+            max-width: 900px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+        
+        .memory-items.show {
+            opacity: 1;
+        }
+        
+        .memory-item {
+            width: 180px;
+            height: 180px;
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .memory-item:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 8px 8px 20px rgba(0,0,0,0.3);
+        }
+        
+        .memory-item .back-content {
+            position: absolute;
+            inset: 0;
+            background: var(--gold);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 16px;
+            opacity: 0;
+            transform: rotateY(180deg);
+            transition: all 0.6s ease;
+        }
+        
+        .memory-item.flipped .back-content {
+            opacity: 1;
+            transform: rotateY(0deg);
+        }
+        
+        .memory-item.flipped {
+            transform: rotateY(180deg);
+        }
+        
+        /* SECTION 7 - NIGHT SKY */
+        .night-sky-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a1128 0%, #1e3a5f 50%, #3a506b 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stars-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .wish-input-container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .wish-input {
+            width: 400px;
+            padding: 15px 25px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 18px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 30px;
+            color: white;
+            text-align: center;
+            backdrop-filter: blur(10px);
+        }
+        
+        .wish-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .wish-instruction {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+        
+        /* SECTION 8 - FIREWORKS */
+        .fireworks-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #1a1a2e 0%, #16213e 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fireworks-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .final-message {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+            color: white;
+            max-width: 800px;
+            padding: 40px;
+        }
+        
+        .final-message h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 72px;
+            margin-bottom: 30px;
+            text-shadow: 0 0 30px rgba(255, 255, 255, 0.8);
+            animation: fadeInScale 1s ease-out forwards;
+        }
+        
+        @keyframes fadeInScale {
+            0% { opacity: 0; transform: scale(0.5); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .final-message p {
+            font-size: 28px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            font-family: 'Patrick Hand', cursive;
+            animation: fadeInUp 1s ease-out 0.5s forwards;
+            opacity: 0;
+        }
+        
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        
+        .video-btn {
+            margin-top: 40px;
+            padding: 20px 50px;
+            font-family: 'Patrick Hand', cursive;
+            font-size: 24px;
+            color: white;
+            background: linear-gradient(145deg, #ff6b9d, #c9184a);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease-out 1s forwards;
+            opacity: 0;
+        }
+        
+        .video-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.7);
+        }
+        
+        /* NEXT BUTTON STYLING */
+        .next-btn {
+            display: block;
+            margin: 60px auto 40px;
+            padding: 20px 60px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 28px;
+            color: white;
+            background: linear-gradient(145deg, #ff6b9d, #c9184a);
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .next-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+        
+        .next-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+        
+        .next-btn:hover {
+            transform: scale(1.15) rotate(-2deg);
+            box-shadow: 0 15px 40px rgba(255, 107, 157, 0.8);
+        }
+        
+        .next-btn:active {
+            transform: scale(1.05);
+        }
+        
+        /* MOMENTS SECTION */
+        .moments-section {
+            min-height: 100vh;
+            padding: 80px 20px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--lavender) 50%, var(--blush) 100%);
+            position: relative;
+        }
+        
+        /* SECTION 9 - ENDING */
+        .ending-section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: radial-gradient(circle at 50% 50%, var(--cream), var(--beige));
+        }
+        
+        .closing-book {
+            width: 400px;
+            height: 500px;
+            background: linear-gradient(145deg, #8b6f5c, #a68a7a);
+            border-radius: 20px;
+            box-shadow: 20px 20px 60px var(--soft-shadow);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 40px;
+            text-align: center;
+            animation: bookClose 2s ease-out forwards;
+        }
+        
+        @keyframes bookClose {
+            0% { transform: rotateY(-180deg); opacity: 0; }
+            100% { transform: rotateY(0deg); opacity: 1; }
+        }
+        
+        .closing-book h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 48px;
+            color: var(--gold);
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .closing-book p {
+            font-size: 24px;
+            color: var(--cream);
+            line-height: 1.8;
+        }
+        
+        /* UTILITY CLASSES */
+        .hidden {
+            display: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .book-cover { width: 300px; height: 400px; }
+            .book-title { font-size: 36px; }
+            .section-title { font-size: 48px; }
+            .collage-grid { grid-template-columns: 1fr; }
+            .wish-input { width: 90%; }
+            .final-message h1 { font-size: 48px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- SPARKLES CANVAS -->
+    <canvas id="sparkles-canvas"></canvas>
+    
+    <!-- SECTION 1: DIARY COVER -->
+    <section class="diary-cover" id="cover-section">
+        <div class="book-cover" id="book-cover">
+            <div class="book-title">Our<br>Love Story ✨</div>
+            <div class="sticker heart-sticker">💕</div>
+            <div class="sticker star-sticker">⭐</div>
+            <div class="sticker sparkle-sticker">✨</div>
+            <div class="sticker flower-sticker">🌸</div>
+        </div>
+        <button class="open-btn" id="open-book-btn">Open ✨</button>
+    </section>
+    
+    <!-- SECTION 2: TIMELINE -->
+    <section class="timeline-section hidden" id="timeline-section">
+        <canvas class="doodle-canvas" id="doodle-canvas-1"></canvas>
+        
+        <div class="timeline-moment">
+            <div class="sticky-note">
+                <p>The first time I saw you, the whole world stopped. Your smile became my favorite view. 💕</p>
+            </div>
+        </div>
+        
+        <div class="timeline-moment">
+            <div class="polaroid">
+                <img src="A1.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">I LOVE YOU SO MUCHHHH!! 🌟</div>
+            </div>
+        </div>
+        
+        <canvas class="doodle-canvas" id="doodle-canvas-2"></canvas>
+        
+        <div class="timeline-moment">
+            <div class="sticky-note" style="transform: rotate(2deg); background: var(--lavender);">
+                <p>Every moment with you feels like magic. You make ordinary days extraordinary. ✨</p>
+            </div>
+        </div>
+        
+        <div class="timeline-moment">
+            <div class="polaroid" style="transform: rotate(-5deg);">
+                <img src="A2.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">The day you made my heart skip 💗</div>
+            </div>
+        </div>
+        
+        <canvas class="doodle-canvas" id="doodle-canvas-3"></canvas>            <div class="timeline-moment">
+            <div class="sticky-note" style="transform: rotate(-1deg); background: var(--blush);">
+                <p>You're my favorite notification, my favorite hello, my favorite everything. 🌈</p>
+            </div>
+        </div>
+        
+        <button class="next-btn" data-next="collage-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 3: COLLAGE WALL -->
+    <section class="collage-section hidden" id="collage-section">
+        <h2 class="section-title">YOUR CUTENESS 📸</h2>
+        
+        
+        <div class="collage-grid" id="collage-grid">
+            <div class="collage-photo polaroid" style="transform: rotate(-3deg);">
+                <div class="tape"></div>
+                <img src="A3.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">Every time I look at you, I understand why sunsets get jealous, you genuinely glow 🌟</div>
+            </div>
+            
+            <div class="collage-photo polaroid" style="transform: rotate(4deg);">
+                <div class="tape"></div>
+<img src="A4.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">You know what’s crazy? You don’t even try, and you still manage to be the most attractive person in any room.</div>
+            </div>
+            
+            <div class="collage-photo polaroid" style="transform: rotate(-5deg);">
+                <div class="tape"></div>
+<img src="A5.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">I wasn’t planning to flirt today, but your face changed the entire schedule.</div>
+            </div>
+            
+            <div class="collage-photo polaroid" style="transform: rotate(2deg);">
+                <div class="tape"></div>
+<img src="A6.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">You’re the kind of beautiful that makes people double-check if they’re dreaming.</div>
+            </div>
+            
+            <div class="collage-photo polaroid" style="transform: rotate(-2deg);">
+                <div class="tape"></div>
+<img src="A7.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">If charm was a crime, you’d genuinely be serving a life sentence.</div>
+            </div>
+            
+            <div class="collage-photo polaroid" style="transform: rotate(5deg);">
+                <div class="tape"></div>
+<img src="A8.jpg" alt="Memory" class="memory-img">
+                <div class="polaroid-caption">I don’t know what kind of magic you have, but every time you smile, my whole world forgets how to function.</div>
+            </div>
+        </div>
+        
+        <button class="next-btn" data-next="fireworks-section">Next ✨</button>
+    </section>
+    
+    <!-- GLOBAL BACKGROUND MUSIC CONTROLS -->
+    <div style="position: fixed; top: 20px; right: 20px; z-index: 10000; display: flex; gap: 10px;">
+        <button id="mute-btn" style="padding: 12px 20px; font-family: 'Patrick Hand', cursive; font-size: 18px; background: linear-gradient(145deg, var(--blush), var(--gold)); border: none; border-radius: 30px; cursor: pointer; box-shadow: 5px 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">🔊 Mute</button>
+        <button id="stop-btn" style="padding: 12px 20px; font-family: 'Patrick Hand', cursive; font-size: 18px; background: linear-gradient(145deg, var(--lavender), var(--nude)); border: none; border-radius: 30px; cursor: pointer; box-shadow: 5px 5px 15px rgba(0,0,0,0.2); transition: all 0.3s ease;">⏹️ Stop</button>
+    </div>
+    
+    <!-- SECTION 4: MORE MOMENTS -->
+    <section class="moments-section hidden" id="moments-section">
+        <h2 class="section-title">More Beautiful Moments 💕</h2>
+        
+        <div style="max-width: 1000px; margin: 0 auto; padding: 40px;">
+            <div class="timeline-moment">
+                <div class="sticky-note" style="background: var(--lavender);">
+                    <p>Remember when we danced in the rain? That moment felt like pure magic ☔✨</p>
+                </div>
+            </div>
+            
+            <div class="timeline-moment">
+                <div class="polaroid" style="transform: rotate(-4deg);">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23ffd88a' width='300' height='300'/%3E%3Ctext x='50%25' y='45%25' font-size='24' text-anchor='middle' dy='.3em' fill='%235a4a42' font-family='Patrick Hand, cursive'%3EOur Sunset%3C/text%3E%3Ctext x='50%25' y='60%25' font-size='20' text-anchor='middle' dy='.3em' fill='%235a4a42' font-family='Patrick Hand, cursive'%3EMoment 🌅%3C/text%3E%3C/svg%3E" alt="Memory">
+                    <div class="polaroid-caption">Chasing sunsets together 🌇</div>
+                </div>
+            </div>
+            
+            <div class="timeline-moment">
+                <div class="sticky-note" style="transform: rotate(3deg); background: var(--blush);">
+                    <p>Your laugh that day made my entire year. I could listen to it forever 😊💗</p>
+                </div>
+            </div>
+            
+            <div class="timeline-moment">
+                <div class="polaroid" style="transform: rotate(5deg);">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Crect fill='%23e6d9ff' width='300' height='300'/%3E%3Ctext x='50%25' y='45%25' font-size='24' text-anchor='middle' dy='.3em' fill='%235a4a42' font-family='Patrick Hand, cursive'%3EVideo%3C/text%3E%3Ctext x='50%25' y='60%25' font-size='60' text-anchor='middle' dy='.3em' fill='%235a4a42'%3E▶️%3C/text%3E%3C/svg%3E" alt="Video" style="cursor: pointer;" onclick="alert('💕 Add your special video here! This could be a compilation of your favorite moments together! 🎬')">
+                    <div class="polaroid-caption">Our special video 🎬</div>
+                </div>
+            </div>
+        </div>
+        
+        <button class="next-btn" data-next="collage-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 5: LETTER -->
+    <section class="letter-section hidden" id="letter-section">
+        <h2 class="section-title" style="position: absolute; top: 40px; left: 50%; transform: translateX(-50%);">A Letter For You 💌</h2>
+        
+        <div class="envelope-container">
+            <div class="envelope" id="envelope">
+                <div class="envelope-flap"></div>
+                <div class="ribbon"></div>
+            </div>
+            
+            <div class="letter" id="letter">
+                <div class="letter-content">
+                    <p style="font-size: 24px; text-align: center; margin-bottom: 20px;">My Dearest Sarayu, 💕</p>
+                    
+                    <p>Happy Birthday to the most incredible person in my universe! ✨</p>
+                    
+                    <p>Every day with you is a new page in the most beautiful story ever written. You light up my world in ways I never knew were possible.</p>
+                    
+                    <div class="letter-hearts">💗 💕 💖 ✨ 🌟</div>
+                    
+                    <p>Your smile is my sunshine, your laugh is my favorite sound, and your happiness is my greatest wish.</p>
+                    
+                    <p>On this special day, I want you to know that you are loved beyond measure, cherished beyond words, and treasured beyond time.</p>
+                    
+                    <p>Thank you for being you, for being mine, for being the magic in every moment.</p>
+                    
+                    <p style="text-align: center; margin-top: 30px; font-size: 20px;">Forever yours,<br>With all my love 💕<br>Aditya</p>
+                    
+                    <div class="letter-hearts">🌹 🌸 🌺 🌻 🌷</div>
+                </div>
+                <button class="fold-back-btn" id="fold-back-btn">Fold Back 💌</button>
+            </div>
+        </div>
+        
+        <button class="next-btn" data-next="treasure-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 6: TREASURE CHEST -->
+    <section class="treasure-section hidden" id="treasure-section">
+        <h2 class="section-title">Memory Chest 🎁</h2>
+        
+        <div class="treasure-chest" id="treasure-chest">
+            <div class="chest-lid"></div>
+            <div class="chest-glow"></div>
+            <div class="sparkle-effect" style="top: 20%; left: 20%;">✨</div>
+            <div class="sparkle-effect" style="top: 30%; right: 25%; animation-delay: 0.5s;">⭐</div>
+            <div class="sparkle-effect" style="bottom: 25%; left: 30%; animation-delay: 1s;">💫</div>
+        </div>
+        
+        <div class="memory-items" id="memory-items">
+            <div class="memory-item" data-memory="0">
+                🎟️
+                <div class="back-content">First movie ticket we shared - the beginning of forever 💕</div>
+            </div>
+            <div class="memory-item" data-memory="1">
+                🎬
+                <div class="back-content">All those late-night conversations under the stars ✨</div>
+            </div>
+            <div class="memory-item" data-memory="2">
+                📸
+                <div class="back-content">That photo where you laughed so hard you cried 😊</div>
+            </div>
+            <div class="memory-item" data-memory="3">
+                🔑
+                <div class="back-content">You hold the key to my heart forever 💗</div>
+            </div>
+            <div class="memory-item" data-memory="4">
+                💝
+                <div class="back-content">Every gift I give can't match what you give me - pure joy!</div>
+            </div>
+            <div class="memory-item" data-memory="5">
+                🌹
+                <div class="back-content">Like this rose, my love for you blooms endlessly 🌹</div>
+            </div>
+            <div class="memory-item" data-memory="6">
+                📝
+                <div class="back-content">All those little notes I wrote just to see you smile 😊</div>
+            </div>
+            <div class="memory-item" data-memory="7">
+                🎨
+                <div class="back-content">You color my world in the most beautiful ways 🌈</div>
+            </div>
+        </div>
+        
+        <button class="next-btn" data-next="night-sky-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 7: NIGHT SKY -->
+    <section class="night-sky-section hidden" id="night-sky-section">
+        <canvas class="stars-canvas" id="stars-canvas"></canvas>
+        
+        <div class="wish-input-container">
+            <h2 class="wish-instruction">Make a wish on our stars ✨</h2>
+            <input type="text" class="wish-input" id="wish-input" placeholder="Write your birthday wish...">
+        </div>
+        
+        <button class="next-btn" data-next="fireworks-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 8: FIREWORKS -->
+    <section class="fireworks-section hidden" id="fireworks-section">
+        <canvas class="fireworks-canvas" id="fireworks-canvas"></canvas>
+        
+        <div class="final-message">
+            <h1>Happy Birthday Sarayu! 🎉</h1>
+            <p>You are my sunshine, my moonlight, and all my stars combined. ✨</p>
+            <p>Today, tomorrow, and always - you are celebrated, cherished, and loved beyond words. 💕</p>
+            <p>Here's to another year of making magical memories together! 🌟</p>
+            <button class="video-btn" id="video-btn">Play Your Surprise 🎬</button>
+        </div>
+        
+        <button class="next-btn" data-next="ending-section">Next ✨</button>
+    </section>
+    
+    <!-- SECTION 9: ENDING -->
+    <section class="ending-section hidden" id="ending-section">
+        <div class="closing-book">
+            <h2>Thank You</h2>
+            <p>For being my favorite story.</p>
+            <p style="margin-top: 40px; font-size: 32px;">Happy Birthday, My Love 💕</p>
+            <p style="font-size: 20px; margin-top: 20px;">- Aditya</p>
+        </div>
+    </section>
+    
+    <script>
+        // GLOBAL SPARKLES CANVAS
+        const sparklesCanvas = document.getElementById('sparkles-canvas');
+        const sparklesCtx = sparklesCanvas.getContext('2d');
+        sparklesCanvas.width = window.innerWidth;
+        sparklesCanvas.height = window.innerHeight;
+        
+        const sparkles = [];
+        
+        class Sparkle {
+            constructor() {
+                this.x = Math.random() * sparklesCanvas.width;
+                this.y = Math.random() * sparklesCanvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedY = Math.random() * 1 + 0.5;
+                this.opacity = Math.random();
+                this.fadeSpeed = Math.random() * 0.02 + 0.01;
+            }
+            
+            update() {
+                this.y -= this.speedY;
+                this.opacity += this.fadeSpeed;
+                if (this.opacity >= 1 || this.opacity <= 0) {
+                    this.fadeSpeed *= -1;
+                }
+                if (this.y < 0) {
+                    this.y = sparklesCanvas.height;
+                }
+            }
+            
+            draw() {
+                sparklesCtx.save();
+                sparklesCtx.globalAlpha = this.opacity;
+                sparklesCtx.fillStyle = '#ffd88a';
+                sparklesCtx.beginPath();
+                sparklesCtx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                sparklesCtx.fill();
+                sparklesCtx.restore();
+            }
+        }
+        
+        for (let i = 0; i < 50; i++) {
+            sparkles.push(new Sparkle());
+        }
+        
+        function animateSparkles() {
+            sparklesCtx.clearRect(0, 0, sparklesCanvas.width, sparklesCanvas.height);
+            sparkles.forEach(sparkle => {
+                sparkle.update();
+                sparkle.draw();
+            });
+            requestAnimationFrame(animateSparkles);
+        }
+        
+        animateSparkles();
+        
+        // SECTION 1: OPEN BOOK
+        const openBookBtn = document.getElementById('open-book-btn');
+        const bookCover = document.getElementById('book-cover');
+        const coverSection = document.getElementById('cover-section');
+        const timelineSection = document.getElementById('timeline-section');
+        
+        openBookBtn.addEventListener('click', () => {
+            bookCover.classList.add('opening');
+            setTimeout(() => {
+                coverSection.classList.add('hidden');
+                timelineSection.classList.remove('hidden');
+                initTimeline();
+            }, 1500);
+        });
+        
+        // SECTION 2: TIMELINE SCROLL REVEAL
+        function initTimeline() {
+            const moments = document.querySelectorAll('.timeline-moment');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.2 });
+            
+            moments.forEach(moment => observer.observe(moment));
+            
+            // DOODLE ANIMATIONS
+            drawDoodle('doodle-canvas-1', [
+                { type: 'heart', x: 100, y: 80 },
+                { type: 'arrow', x: 250, y: 100 },
+                { type: 'star', x: 450, y: 70 }
+            ]);
+            
+            drawDoodle('doodle-canvas-2', [
+                { type: 'heart', x: 150, y: 90 },
+                { type: 'smiley', x: 350, y: 80 }
+            ]);
+            
+            drawDoodle('doodle-canvas-3', [
+                { type: 'star', x: 120, y: 100 },
+                { type: 'heart', x: 300, y: 60 },
+                { type: 'arrow', x: 480, y: 90 }
+            ]);
+            
+            setTimeout(() => {
+                timelineSection.classList.add('hidden');
+                document.getElementById('collage-section').classList.remove('hidden');
+            }, 10000);
+        }
+        
+        function drawDoodle(canvasId, shapes) {
+            const canvas = document.getElementById(canvasId);
+            if (!canvas) return;
+            
+            const ctx = canvas.getContext('2d');
+            canvas.width = canvas.offsetWidth;
+            canvas.height = 200;
+            
+            ctx.strokeStyle = '#ff6b9d';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            
+            let index = 0;
+            
+            function drawNext() {
+                if (index >= shapes.length) return;
+                
+                const shape = shapes[index];
+                ctx.save();
+                ctx.translate(shape.x, shape.y);
+                
+                if (shape.type === 'heart') {
+                    ctx.beginPath();
+                    ctx.moveTo(0, 10);
+                    ctx.bezierCurveTo(-15, -5, -25, 5, 0, 25);
+                    ctx.bezierCurveTo(25, 5, 15, -5, 0, 10);
+                    ctx.stroke();
+                } else if (shape.type === 'star') {
+                    ctx.beginPath();
+                    for (let i = 0; i < 5; i++) {
+                        ctx.lineTo(Math.cos((i * 4 * Math.PI) / 5) * 20, Math.sin((i * 4 * Math.PI) / 5) * 20);
+                    }
+                    ctx.closePath();
+                    ctx.stroke();
+                } else if (shape.type === 'arrow') {
+                    ctx.beginPath();
+                    ctx.moveTo(0, 0);
+                    ctx.lineTo(40, 0);
+                    ctx.moveTo(30, -10);
+                    ctx.lineTo(40, 0);
+                    ctx.lineTo(30, 10);
+                    ctx.stroke();
+                } else if (shape.type === 'smiley') {
+                    ctx.beginPath();
+                    ctx.arc(0, 0, 20, 0, Math.PI * 2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.arc(-8, -5, 2, 0, Math.PI * 2);
+                    ctx.arc(8, -5, 2, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.beginPath();
+                    ctx.arc(0, 5, 12, 0, Math.PI);
+                    ctx.stroke();
+                }
+                
+                ctx.restore();
+                index++;
+                setTimeout(drawNext, 800);
+            }
+            
+            drawNext();
+        }
+        
+        // SECTION 3: COLLAGE SHUFFLE
+        const shuffleBtn = document.getElementById('shuffle-btn');
+        const collageGrid = document.getElementById('collage-grid');
+
+        // Guard against missing elements to avoid runtime errors that stop later scripts
+        if (shuffleBtn && collageGrid) {
+            shuffleBtn.addEventListener('click', () => {
+                const photos = Array.from(collageGrid.children);
+                photos.forEach(photo => {
+                    photo.style.transform = `rotate(${Math.random() * 20 - 10}deg)`;
+                });
+            });
+        }
+        
+        // BACKGROUND MUSIC CONTROLS
+        // Note: Add your audio file here
+        // const bgMusic = new Audio('your-song-file.mp3');
+        // bgMusic.loop = true;
+        // bgMusic.volume = 0.3;
+        
+        let isMuted = false;
+        let isStopped = true;
+        
+        const muteBtn = document.getElementById('mute-btn');
+        const stopBtn = document.getElementById('stop-btn');
+        
+        muteBtn.addEventListener('click', () => {
+            isMuted = !isMuted;
+            // bgMusic.muted = isMuted;
+            muteBtn.textContent = isMuted ? '🔇 Unmute' : '🔊 Mute';
+            muteBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => muteBtn.style.transform = 'scale(1)', 100);
+        });
+        
+        stopBtn.addEventListener('click', () => {
+            isStopped = !isStopped;
+            if (isStopped) {
+                // bgMusic.pause();
+                // bgMusic.currentTime = 0;
+                stopBtn.textContent = '▶️ Play';
+            } else {
+                // bgMusic.play();
+                stopBtn.textContent = '⏹️ Stop';
+            }
+            stopBtn.style.transform = 'scale(0.95)';
+            setTimeout(() => stopBtn.style.transform = 'scale(1)', 100);
+        });
+        
+        // NEXT BUTTON FUNCTIONALITY
+        document.querySelectorAll('.next-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const currentSection = this.closest('section');
+                const nextSectionId = this.dataset.next;
+                const nextSection = document.getElementById(nextSectionId);
+                
+                // Smooth transition
+                currentSection.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                currentSection.style.opacity = '0';
+                currentSection.style.transform = 'translateY(-50px)';
+                
+                setTimeout(() => {
+                    currentSection.classList.add('hidden');
+                    currentSection.style.opacity = '1';
+                    currentSection.style.transform = 'translateY(0)';
+                    
+                    nextSection.classList.remove('hidden');
+                    nextSection.style.opacity = '0';
+                    nextSection.style.transform = 'translateY(50px)';
+                    
+                    setTimeout(() => {
+                        nextSection.style.transition = 'opacity 0.8s ease-out, transform 0.8s ease-out';
+                        nextSection.style.opacity = '1';
+                        nextSection.style.transform = 'translateY(0)';
+                        
+                        // Initialize section-specific features
+                        if (nextSectionId === 'night-sky-section') {
+                            initNightSky();
+                        } else if (nextSectionId === 'fireworks-section') {
+                            initFireworks();
+                        } else if (nextSectionId === 'moments-section') {
+                            const moments = nextSection.querySelectorAll('.timeline-moment');
+                            moments.forEach((moment, i) => {
+                                setTimeout(() => moment.classList.add('visible'), i * 300);
+                            });
+                        }
+                    }, 50);
+                }, 800);
+            });
+        });
+        
+        // SECTION 8: FIREWORKS
+        function initFireworks() {
+            const fireworksCanvas = document.getElementById('fireworks-canvas');
+            const fireworksCtx = fireworksCanvas.getContext('2d');
+            fireworksCanvas.width = window.innerWidth;
+            fireworksCanvas.height = window.innerHeight;
+            
+            class Particle {
+                constructor(x, y, color) {
+                    this.x = x;
+                    this.y = y;
+                    this.color = color;
+                    this.velocity = {
+                        x: (Math.random() - 0.5) * 8,
+                        y: (Math.random() - 0.5) * 8
+                    };
+                    this.alpha = 1;
+                    this.decay = Math.random() * 0.02 + 0.01;
+                }
+                
+                update() {
+                    this.velocity.y += 0.1;
+                    this.x += this.velocity.x;
+                    this.y += this.velocity.y;
+                    this.alpha -= this.decay;
+                }
+                
+                draw() {
+                    fireworksCtx.save();
+                    fireworksCtx.globalAlpha = this.alpha;
+                    fireworksCtx.fillStyle = this.color;
+                    fireworksCtx.beginPath();
+                    fireworksCtx.arc(this.x, this.y, 3, 0, Math.PI * 2);
+                    fireworksCtx.fill();
+                    fireworksCtx.restore();
+                }
+            }
+            
+            const particles = [];
+            const colors = ['#ff6b9d', '#ffd88a', '#f8c8dc', '#e6d9ff', '#32b8c6'];
+            
+            function createFirework() {
+                const x = Math.random() * fireworksCanvas.width;
+                const y = Math.random() * (fireworksCanvas.height * 0.6);
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                
+                for (let i = 0; i < 50; i++) {
+                    particles.push(new Particle(x, y, color));
+                }
+            }
+            
+            setInterval(createFirework, 800);
+            
+            function animateFireworks() {
+                fireworksCtx.fillStyle = 'rgba(26, 26, 46, 0.1)';
+                fireworksCtx.fillRect(0, 0, fireworksCanvas.width, fireworksCanvas.height);
+                
+                particles.forEach((particle, index) => {
+                    if (particle.alpha <= 0) {
+                        particles.splice(index, 1);
+                    } else {
+                        particle.update();
+                        particle.draw();
+                    }
+                });
+                
+                requestAnimationFrame(animateFireworks);
+            }
+            
+            animateFireworks();
+        }
+        
+        // VIDEO BUTTON - EPIC WEDDING PROPOSAL EXPERIENCE
+        const videoBtn = document.getElementById('video-btn');
+        let currentScene = 0;
+        
+        videoBtn.addEventListener('click', () => {
+            createWeddingExperience();
+        });
+        
+        function createWeddingExperience() {
+            // Create full-screen overlay
+            const overlay = document.createElement('div');
+            overlay.id = 'wedding-overlay';
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.95);
+                z-index: 99999;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                opacity: 0;
+                transition: opacity 1s ease;
+            `;
+            
+            const container = document.createElement('div');
+            container.id = 'wedding-container';
+            container.style.cssText = `
+                width: 90%;
+                max-width: 1200px;
+                height: 80vh;
+                position: relative;
+                overflow: hidden;
+            `;
+            
+            overlay.appendChild(container);
+            document.body.appendChild(overlay);
+            
+            // Background music (uncomment and add your audio file)
+            // const weddingMusic = new Audio('your-romantic-song.mp3');
+            // weddingMusic.loop = true;
+            // weddingMusic.volume = 0.4;
+            // weddingMusic.play();
+            
+            setTimeout(() => overlay.style.opacity = '1', 100);
+            
+            showScene(container, 0);
+        }
+        
+        function showScene(container, sceneIndex) {
+            currentScene = sceneIndex;
+            
+            // Special handling for Scene 8 (Wedding Rituals)
+            if (sceneIndex === 7) {
+                container.innerHTML = '';
+                showWeddingRituals(container);
+                return;
+            }
+            
+            container.innerHTML = '';
+            
+            const scenes = [
+                // SCENE 0 - Your Character Appears
+                {
+                    background: 'radial-gradient(circle, rgba(30,30,40,0.95), rgba(10,10,20,1))',
+                    animation: 'fadeInScale',
+                    content: `
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; width: 80%;">
+                            <div style="width: 250px; height: 250px; margin: 0 auto 40px; border-radius: 50%; overflow: hidden; border: 5px solid var(--gold); box-shadow: 0 0 50px rgba(255, 216, 138, 0.6); animation: fadeInScale 2s ease-out;">
+<img src="A9.jpg" alt="Memory" class="memory-img" style="
+    WIDTH: 110&;
+    HEIGHT: 150%;">
+                            </div>
+                            <div style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; line-height: 1.8; animation: fadeInUp 2s ease-out 1s backwards;">
+                                <p style="margin: 20px 0;">"Hey… it's me."</p>
+                                <p style="margin: 20px 0;">"Before we go somewhere special…</p>
+                                <p style="margin: 20px 0;">I want to take you on a journey."</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 1 - School
+                {
+                    background: 'linear-gradient(135deg, rgba(70,130,180,0.3), rgba(100,149,237,0.3)), url("https://www.panineeya.org/panineeya-mahavidyalaya-public-school/images/slider3.jpg")',
+                    backgroundSize: 'cover',
+                    animation: 'fadeIn',
+                    content: `
+                       
+                        <div style="position: absolute; top: 20%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                            <div style="background: rgba(0,0,0,0.7); padding: 30px; border-radius: 20px; backdrop-filter: blur(10px); animation: fadeInUp 1.5s ease-out 1s backwards;">
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 36px; margin: 10px 0;">The Beginning</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 24px; margin: 15px 0;">"This… is where I first saw you."</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 24px; margin: 15px 0;">"I didn't know then, but this moment would change everything."</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 2 - Instagram Reunion
+                {
+                    background: 'linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045)',
+                    animation: 'fadeIn',
+                    content: `
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 600px;">
+                            <div style="background: white; border-radius: 20px; padding: 40px; box-shadow: 0 20px 60px rgba(0,0,0,0.4); animation: phonePopUp 1.5s ease-out;">
+                                <div style="text-align: center; margin-bottom: 30px;">
+                                    <div style="display: inline-block; animation: ping 2s ease-out infinite;">
+                                        <div style="width: 150px; height: 150px; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 5px solid #fd1d1d;">
+<img src="a10.jpg" alt="Memory" class="memory-img" style="
+    width: 100%"";
+>                                        </div>
+                                    </div>
+                                </div>
+                                <div style="text-align: center; animation: floatEmojis 3s ease-in-out infinite;">
+                                    <span style="font-size: 40px; margin: 0 10px; display: inline-block; animation: float 2s ease-in-out infinite;">💕</span>
+                                    <span style="font-size: 40px; margin: 0 10px; display: inline-block; animation: float 2s ease-in-out 0.3s infinite;">📱</span>
+                                    <span style="font-size: 40px; margin: 0 10px; display: inline-block; animation: float 2s ease-in-out 0.6s infinite;">✨</span>
+                                </div>
+                            </div>
+                            <div style="text-align: center; margin-top: 40px; animation: fadeInUp 1.5s ease-out 1s backwards;">
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"Years passed…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"Life changed…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 32px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"But destiny made you appear on my Instagram again."</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"And I swear, my heart recognised you before I did."</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 3 - Mall Meet
+                {
+                    background: 'linear-gradient(135deg, rgba(240,240,245,0.95), rgba(200,200,220,0.95)), url(data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="1200" height="800"%3E%3Crect fill="%23f0f0f5" width="1200" height="800"/%3E%3Ctext x="50%25" y="50%25" font-size="40" text-anchor="middle" fill="%235a4a42"%3EMall Background%3C/text%3E%3C/svg%3E)',
+                    backgroundSize: 'cover',
+                    animation: 'fadeIn',
+                    content: `
+                        <div style="display: flex; align-items: center; justify-content: space-around; height: 100%; padding: 60px;">
+                            <div style="animation: slideInLeft 1.5s ease-out;">
+                                <div style="width: 250px; height: 250px; border-radius: 30px; overflow: hidden; border: 5px solid var(--gold); box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+<img src="a11.jpg" alt="Memory" class="memory-img"style="
+    width: 100%"
+>                                </div>
+                            </div>
+                            <div style="animation: heartBeat 2s ease-in-out infinite; font-size: 80px;">💕</div>
+                            <div style="animation: slideInRight 1.5s ease-out;">
+                                <div style="width: 250px; height: 250px; border-radius: 30px; overflow: hidden; border: 5px solid var(--blush); box-shadow: 0 15px 40px rgba(248, 200, 220, 0.5);">
+<img src="a12.jpg" alt="Memory" class="memory-img" style="
+    width: 100%;"
+>                                </div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; bottom: 10%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                            <div style="background: rgba(255,255,255,0.95); padding: 30px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.2); animation: fadeInUp 1.5s ease-out 1s backwards;">
+                                <p style="font-family: 'Patrick Hand', cursive; color: #5a4a42; font-size: 24px; margin: 10px 0;">"After so long… there you were."</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: #5a4a42; font-size: 24px; margin: 10px 0;">"Same smile. Same vibe."</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 28px; margin: 10px 0;">"And something inside me whispered…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 32px; margin: 10px 0;">"Don't lose her again."</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 4 - Love Started
+                {
+                    background: 'linear-gradient(135deg, #ff9a9e, #fad0c4, #ffecd2)',
+                    animation: 'fadeIn',
+                    content: `
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                            <div style="position: relative; animation: rotatePhotos 20s linear infinite;">
+                                <div style="width: 300px; height: 300px; border-radius: 50%; overflow: hidden; border: 8px solid white; box-shadow: 0 20px 60px rgba(0,0,0,0.3); position: relative; z-index: 2;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Ccircle fill='%23f8c8dc' cx='150' cy='150' r='150'/%3E%3Ctext x='50%25' y='45%25' font-size='20' text-anchor='middle' dy='.3em' fill='%235a4a42'%3EYou %26%3C/text%3E%3Ctext x='50%25' y='60%25' font-size='20' text-anchor='middle' dy='.3em' fill='%235a4a42'%3ESarayu%3C/text%3E%3C/svg%3E" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div style="position: absolute; top: -20px; left: -20px; right: -20px; bottom: -20px; animation: floatingHearts 4s ease-in-out infinite;">
+                                    <span style="position: absolute; top: 0%; left: 50%; font-size: 40px; animation: float 3s ease-in-out infinite;">💕</span>
+                                    <span style="position: absolute; top: 50%; right: 0%; font-size: 35px; animation: float 3s ease-in-out 0.5s infinite;">💗</span>
+                                    <span style="position: absolute; bottom: 0%; left: 50%; font-size: 38px; animation: float 3s ease-in-out 1s infinite;">💖</span>
+                                    <span style="position: absolute; top: 50%; left: 0%; font-size: 36px; animation: float 3s ease-in-out 1.5s infinite;">✨</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                            <div style="animation: fadeInUp 1.5s ease-out 0.5s backwards;">
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"We talked…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"We laughed…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"We got closer…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 36px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); margin: 20px 0;">"And somehow, slowly, quietly…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 42px; text-shadow: 2px 2px 6px rgba(0,0,0,0.7); margin: 20px 0; animation: heartBeat 2s ease-in-out infinite;">I fell in love with you.</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 5 - Online Proposal
+                {
+                    background: 'radial-gradient(circle, #ff6b9d, #c9184a)',
+                    animation: 'fadeIn',
+                    content: `
+                        <div style="display: flex; align-items: center; justify-content: center; height: 150%; flex-direction: column;">
+                            <div style="position: relative; animation: popIn 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+                                
+                                <div style="position: absolute; bottom: -30px; right: -30px; font-size: 100px; animation: ringGlow 2s ease-in-out infinite; filter: drop-shadow(0 0 20px rgba(255, 216, 138, 0.8));">💍</div>
+                            </div>
+                            <div style="margin: 60px 0; animation: blushEffect 2s ease-in-out 1s backwards;">
+                                <div style="width: 250px; height: 250px; border-radius: 50%; overflow: hidden; border: 8px solid white; box-shadow: 0 0 60px rgba(255, 255, 255, 0.6); background: radial-gradient(circle, rgba(255, 182, 193, 0.3), transparent);">
+<img src="a13.jpg" alt="Memory" class="memory-img" style="
+    width: 100%;"
+>                                </div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 10%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                            <div style="animation: fadeInUp 1.5s ease-out 1.5s backwards;">
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"I wasn't in front of you… but my heart was."</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin: 15px 0;">"And that day… I asked you the question."</p>
+                                <div style="margin-top: 40px; animation: shake 0.5s ease-in-out 3s;">
+                                    <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 56px; text-shadow: 0 0 30px rgba(255, 216, 138, 0.8); animation: textGlow 2s ease-in-out infinite;">I Love You 💕</p>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 6 - Tirupathi
+                {
+                    background: 'linear-gradient(135deg, rgba(218, 165, 32, 0.3), rgba(184, 134, 11, 0.3)), url(https://d3sftlgbtusmnv.cloudfront.net/blog/wp-content/uploads/2024/08/Exterior-view-Cover-Photo-840x425.jpg)',
+                    backgroundSize: 'cover',
+                    animation: 'fadeIn',
+                    content: `
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(circle, rgba(255, 215, 0, 0.2), transparent);">
+                            <div style="position: absolute; top: 20%; left: 20%; animation: diyaGlow 2s ease-in-out infinite;">🪔</div>
+                            <div style="position: absolute; top: 30%; right: 25%; animation: diyaGlow 2s ease-in-out 0.5s infinite;">🪔</div>
+                            <div style="position: absolute; bottom: 30%; left: 25%; animation: diyaGlow 2s ease-in-out 1s infinite;">🪔</div>
+                            <div style="position: absolute; bottom: 25%; right: 20%; animation: diyaGlow 2s ease-in-out 1.5s infinite;">🪔</div>
+                        </div>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); display: flex; gap: 60px; align-items: center;">
+                            <div style="animation: fadeInScale 1.5s ease-out;">
+                                
+                            </div>
+                            <div style="font-size: 80px; animation: pulse 2s ease-in-out infinite;">🙏</div>
+                            <div style="animation: fadeInScale 1.5s ease-out 0.5s backwards;">
+                                
+                            </div>
+                        </div>
+                        <div style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center;">
+                            <div style="background: rgba(0,0,0,0.7); padding: 30px; border-radius: 20px; backdrop-filter: blur(10px); animation: fadeInUp 1.5s ease-out 1s backwards;">
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 40px; margin: 15px 0; text-shadow: 0 0 20px rgba(255, 215, 0, 0.8);">Divine Blessing</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 24px; margin: 10px 0;">"Together in Tirupathi…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 24px; margin: 10px 0;">"Praying… hoping… believing…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 28px; margin: 15px 0;">"It felt like God himself was writing our story."</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 7 - Wedding Proposal
+                {
+                    background: 'radial-gradient(circle, #1a1a2e, #0f0f1e)',
+                    animation: 'fadeIn',
+                    content: `
+                        <canvas id="proposal-fireworks" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></canvas>
+                        <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center; z-index: 10;">
+                            <div style="animation: zoomInDramatic 2s cubic-bezier(0.68, -0.55, 0.265, 1.55);">
+                                <div style="width: 300px; height: 300px; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 8px solid var(--gold); box-shadow: 0 0 80px rgba(255, 216, 138, 0.9); animation: ringPulse 2s ease-in-out infinite;">
+                                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Ccircle fill='%23ffd88a' cx='150' cy='150' r='150'/%3E%3Ctext x='50%25' y='45%25' font-size='20' text-anchor='middle' dy='.3em' fill='%235a4a42'%3EYou%3C/text%3E%3Ctext x='50%25' y='60%25' font-size='20' text-anchor='middle' dy='.3em' fill='%235a4a42'%3EKneeling%3C/text%3E%3C/svg%3E" style="width: 100%; height: 100%; object-fit: cover;">
+                                </div>
+                                <div style="margin-top: -50px; font-size: 120px; animation: ringRotate 4s linear infinite; filter: drop-shadow(0 0 30px rgba(255, 216, 138, 1));">💍</div>
+                            </div>
+                        </div>
+                        <div style="position: absolute; top: 15%; left: 50%; transform: translateX(-50%); width: 80%; text-align: center; z-index: 10;">
+                            <div style="animation: fadeInUp 1.5s ease-out 1s backwards;">
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); margin: 15px 0;">"So today…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); margin: 15px 0;">"In front of destiny…"</p>
+                                <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 28px; text-shadow: 2px 2px 4px rgba(0,0,0,0.7); margin: 15px 0;">"In front of everything we have been through…"</p>
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 36px; text-shadow: 0 0 20px rgba(255, 216, 138, 0.8); margin: 20px 0;">"I want to ask you something…"</p>
+                            </div>
+                        </div>
+                        <div style="position: absolute; bottom: 15%; left: 50%; transform: translateX(-50%); text-align: center; z-index: 10;">
+                            <div style="animation: proposalText 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 2s backwards;">
+                                <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 72px; text-shadow: 0 0 40px rgba(255, 216, 138, 1), 0 0 80px rgba(255, 107, 157, 0.8); margin: 0; animation: textGlowIntense 2s ease-in-out infinite;">💍 Will You Marry Me? 💍</p>
+                            </div>
+                        </div>
+                    `
+                },
+                
+                // SCENE 8 - Full Indian Wedding (Ritual-by-Ritual Interactive Experience)
+                {
+                    background: '#000',
+                    animation: 'fadeIn',
+                    content: `
+                        <div id="wedding-scene-container" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; overflow: hidden;">
+                            <!-- Wedding scenes will be dynamically loaded here -->
+                        </div>
+                        <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; overflow-y: auto; padding: 40px;">
+                            <h1 style="font-family: 'Dancing Script', cursive; color: #8b6f5c; font-size: 56px; text-align: center; margin-bottom: 40px; text-shadow: 2px 2px 4px rgba(0,0,0,0.2); animation: fadeInScale 1.5s ease-out;">Our Dream Wedding ✨</h1>
+                            
+                            <div style="max-width: 900px; margin: 0 auto;">
+                                <!-- Baarath -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">🚩</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">The Groom Arrives</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"I came with joy, with excitement… and with the feeling that I am finally going to meet my forever."</p>
+                                </div>
+                                
+                                <!-- Bride Entry -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 0.2s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">👑</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">The Bride Arrives</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"And then… she walked in. The moment I saw her… the world paused."</p>
+                                </div>
+                                
+                                <!-- Jai Mala -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 0.4s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">🌺</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">Jai Mala</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"Two hearts… officially choosing each other."</p>
+                                </div>
+                                
+                                <!-- Kanyadaan -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 0.6s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">🙏</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">Kanyadaan</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"With blessings… our lives are bound with love, trust and destiny."</p>
+                                </div>
+                                
+                                <!-- Agni Sakshi -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 0.8s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">🔥</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">Agni Sakshi</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"With fire as witness… we promise to walk together in every joy and every storm."</p>
+                                </div>
+                                
+                                <!-- Saat Pheras -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 1s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">🌟</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 30px;">Saat Pheras - Seven Sacred Vows</h2>
+                                    <div style="font-family: 'Patrick Hand', cursive; font-size: 18px; color: #5a4a42; line-height: 2;">
+                                        <p>💕 We promise nourishment & togetherness</p>
+                                        <p>💪 We promise strength & health</p>
+                                        <p>🌈 We promise wealth & happiness</p>
+                                        <p>🤝 We promise mutual respect</p>
+                                        <p>💗 We promise love & prosperity</p>
+                                        <p>🔒 We promise loyalty</p>
+                                        <p>✨ We promise a lifetime of friendship</p>
+                                    </div>
+                                </div>
+                                
+                                <!-- Sindoor + Mangalsutra -->
+                                <div style="background: white; border-radius: 20px; padding: 40px; margin: 30px 0; box-shadow: 0 10px 30px rgba(0,0,0,0.1); animation: fadeInUp 1s ease-out 1.2s backwards;">
+                                    <div style="text-align: center; font-size: 48px; margin-bottom: 20px;">💄</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: #ff6b9d; font-size: 36px; text-align: center; margin-bottom: 20px;">Sindoor & Mangalsutra</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; font-size: 22px; text-align: center; color: #5a4a42; line-height: 1.8;">"From this moment… she is mine, and I am hers. Forever."</p>
+                                </div>
+                                
+                                <!-- Final Scene -->
+                                <div style="background: linear-gradient(135deg, #ff6b9d, #ffd88a); border-radius: 20px; padding: 60px 40px; margin: 40px 0; box-shadow: 0 20px 60px rgba(255, 107, 157, 0.4); text-align: center; animation: fadeInScale 1.5s ease-out 1.5s backwards;">
+                                    <div style="font-size: 80px; margin-bottom: 30px; animation: heartBeat 2s ease-in-out infinite;">💞</div>
+                                    <h2 style="font-family: 'Dancing Script', cursive; color: white; font-size: 48px; margin-bottom: 30px; text-shadow: 2px 2px 4px rgba(0,0,0,0.3);">The New Beginning</h2>
+                                    <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; line-height: 1.8; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin: 20px 0;">"This is how I imagine us…"</p>
+                                    <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; line-height: 1.8; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin: 20px 0;">"You. Me. Under the sacred fire."</p>
+                                    <p style="font-family: 'Patrick Hand', cursive; color: white; font-size: 26px; line-height: 1.8; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); margin: 20px 0;">"Beginning our forever."</p>
+                                    <div style="margin-top: 50px; animation: textGlowIntense 2s ease-in-out infinite;">
+                                        <p style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 52px; text-shadow: 0 0 30px rgba(255, 255, 255, 0.8); margin: 0;">💞 Our love story has only begun 💞</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `
+                }
+            ];
+            
+            const scene = scenes[sceneIndex];
+            
+            // Create scene container
+            const sceneDiv = document.createElement('div');
+            sceneDiv.style.cssText = `
+                width: 100%;
+                height: 100%;
+                background: ${scene.background};
+                ${scene.backgroundSize ? `background-size: ${scene.backgroundSize};` : ''}
+                background-position: center;
+                position: relative;
+                animation: ${scene.animation} 1.5s ease-out;
+            `;
+            sceneDiv.innerHTML = scene.content;
+            
+            container.appendChild(sceneDiv);
+            
+            // Add fireworks for proposal scene
+            if (sceneIndex === 7) {
+                setTimeout(() => {
+                    const canvas = document.getElementById('proposal-fireworks');
+                    if (canvas) {
+                        const ctx = canvas.getContext('2d');
+                        canvas.width = canvas.offsetWidth;
+                        canvas.height = canvas.offsetHeight;
+                        
+                        const particles = [];
+                        const colors = ['#ff6b9d', '#ffd88a', '#f8c8dc', '#e6d9ff'];
+                        
+                        function createFirework() {
+                            const x = Math.random() * canvas.width;
+                            const y = Math.random() * canvas.height * 0.6;
+                            const color = colors[Math.floor(Math.random() * colors.length)];
+                            
+                            for (let i = 0; i < 40; i++) {
+                                particles.push({
+                                    x, y, color,
+                                    vx: (Math.random() - 0.5) * 6,
+                                    vy: (Math.random() - 0.5) * 6,
+                                    alpha: 1
+                                });
+                            }
+                        }
+                        
+                        function animate() {
+                            ctx.fillStyle = 'rgba(26, 26, 46, 0.1)';
+                            ctx.fillRect(0, 0, canvas.width, canvas.height);
+                            
+                            particles.forEach((p, i) => {
+                                p.vy += 0.1;
+                                p.x += p.vx;
+                                p.y += p.vy;
+                                p.alpha -= 0.01;
+                                
+                                if (p.alpha <= 0) {
+                                    particles.splice(i, 1);
+                                } else {
+                                    ctx.save();
+                                    ctx.globalAlpha = p.alpha;
+                                    ctx.fillStyle = p.color;
+                                    ctx.beginPath();
+                                    ctx.arc(p.x, p.y, 3, 0, Math.PI * 2);
+                                    ctx.fill();
+                                    ctx.restore();
+                                }
+                            });
+                            
+                            requestAnimationFrame(animate);
+                        }
+                        
+                        setInterval(createFirework, 400);
+                        animate();
+                    }
+                }, 100);
+            }
+            
+            // Add Next button (except for last scene)
+            if (sceneIndex < scenes.length - 1) {
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = 'Next ✨';
+                nextBtn.style.cssText = `
+                    position: absolute;
+                    bottom: 40px;
+                    right: 40px;
+                    padding: 20px 50px;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 28px;
+                    color: white;
+                    background: linear-gradient(145deg, #ff6b9d, #c9184a);
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+                    z-index: 1000;
+                    transition: all 0.3s ease;
+                    animation: fadeInUp 1s ease-out 2s backwards;
+                `;
+                
+                nextBtn.onmouseover = () => {
+                    nextBtn.style.transform = 'scale(1.1) rotate(-2deg)';
+                    nextBtn.style.boxShadow = '0 15px 40px rgba(255, 107, 157, 0.8)';
+                };
+                
+                nextBtn.onmouseout = () => {
+                    nextBtn.style.transform = 'scale(1)';
+                    nextBtn.style.boxShadow = '0 10px 30px rgba(255, 107, 157, 0.5)';
+                };
+                
+                nextBtn.onclick = () => showScene(container, sceneIndex + 1);
+                
+                sceneDiv.appendChild(nextBtn);
+            } else {
+                // Last scene - add close button
+                const closeBtn = document.createElement('button');
+                closeBtn.textContent = 'Return to Birthday 💕';
+                closeBtn.style.cssText = `
+                    position: fixed;
+                    bottom: 40px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    padding: 20px 50px;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 28px;
+                    color: white;
+                    background: linear-gradient(145deg, #ff6b9d, #c9184a);
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+                    z-index: 10000;
+                    transition: all 0.3s ease;
+                `;
+                
+                closeBtn.onmouseover = () => {
+                    closeBtn.style.transform = 'translateX(-50%) scale(1.1)';
+                };
+                
+                closeBtn.onmouseout = () => {
+                    closeBtn.style.transform = 'translateX(-50%) scale(1)';
+                };
+                
+                closeBtn.onclick = () => {
+                    const overlay = document.getElementById('wedding-overlay');
+                    overlay.style.opacity = '0';
+                    setTimeout(() => overlay.remove(), 1000);
+                };
+                
+                document.body.appendChild(closeBtn);
+            }
+            
+            // Add CSS animations
+            if (!document.getElementById('wedding-animations')) {
+                const style = document.createElement('style');
+                style.id = 'wedding-animations';
+                style.textContent = `
+                    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+                    @keyframes fadeInScale { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+                    @keyframes fadeInUp { from { opacity: 0; transform: translateY(50px); } to { opacity: 1; transform: translateY(0); } }
+                    @keyframes slideInLeft { from { opacity: 0; transform: translateX(-100px); } to { opacity: 1; transform: translateX(0); } }
+                    @keyframes slideInRight { from { opacity: 0; transform: translateX(100px); } to { opacity: 1; transform: translateX(0); } }
+                    @keyframes fadeInGhost { from { opacity: 0; filter: blur(20px); } to { opacity: 1; filter: blur(0); } }
+                    @keyframes phonePopUp { from { opacity: 0; transform: scale(0.3) rotateY(180deg); } to { opacity: 1; transform: scale(1) rotateY(0); } }
+                    @keyframes ping { 0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(253, 29, 29, 0.7); } 50% { transform: scale(1.05); box-shadow: 0 0 0 20px rgba(253, 29, 29, 0); } }
+                    @keyframes heartBeat { 0%, 100% { transform: scale(1); } 25% { transform: scale(1.1); } 50% { transform: scale(1); } }
+                    @keyframes rotatePhotos { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                    @keyframes popIn { from { transform: scale(0); } to { transform: scale(1); } }
+                    @keyframes ringGlow { 0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 216, 138, 0.8)); } 50% { filter: drop-shadow(0 0 40px rgba(255, 216, 138, 1)); } }
+                    @keyframes blushEffect { from { opacity: 0; background: radial-gradient(circle, rgba(255, 182, 193, 0), transparent); } to { opacity: 1; background: radial-gradient(circle, rgba(255, 182, 193, 0.3), transparent); } }
+                    @keyframes shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-10px); } 75% { transform: translateX(10px); } }
+                    @keyframes textGlow { 0%, 100% { text-shadow: 0 0 30px rgba(255, 216, 138, 0.8); } 50% { text-shadow: 0 0 60px rgba(255, 216, 138, 1), 0 0 90px rgba(255, 216, 138, 0.8); } }
+                    @keyframes diyaGlow { 0%, 100% { transform: scale(1); filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.6)); } 50% { transform: scale(1.2); filter: drop-shadow(0 0 20px rgba(255, 215, 0, 1)); } }
+                    @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.1); } }
+                    @keyframes zoomInDramatic { from { opacity: 0; transform: scale(0.1) rotate(-180deg); } to { opacity: 1; transform: scale(1) rotate(0); } }
+                    @keyframes ringPulse { 0%, 100% { box-shadow: 0 0 80px rgba(255, 216, 138, 0.9); } 50% { box-shadow: 0 0 120px rgba(255, 216, 138, 1), 0 0 160px rgba(255, 107, 157, 0.6); } }
+                    @keyframes ringRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+                    @keyframes proposalText { from { opacity: 0; transform: scale(0.3) translateY(100px); } to { opacity: 1; transform: scale(1) translateY(0); } }
+                    @keyframes textGlowIntense { 0%, 100% { text-shadow: 0 0 40px rgba(255, 216, 138, 1), 0 0 80px rgba(255, 107, 157, 0.8); } 50% { text-shadow: 0 0 60px rgba(255, 216, 138, 1), 0 0 120px rgba(255, 107, 157, 1), 0 0 160px rgba(255, 107, 157, 0.6); } }
+                    @keyframes petalFall { 0% { transform: translateY(-20px) rotate(0deg); opacity: 1; } 100% { transform: translateY(100vh) rotate(360deg); opacity: 0.5; } }
+                    @keyframes fireFlicker { 0%, 100% { transform: scale(1) translateY(0); opacity: 1; } 50% { transform: scale(1.05) translateY(-5px); opacity: 0.9; } }
+                    @keyframes mandapGlow { 0%, 100% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.4); } 50% { box-shadow: 0 0 80px rgba(255, 215, 0, 0.7), 0 0 120px rgba(255, 215, 0, 0.4); } }
+                    @keyframes garlandDrop { from { transform: translateY(-100px) scale(0.5); opacity: 0; } to { transform: translateY(0) scale(1); opacity: 1; } }
+                    @keyframes characterGlow { 0%, 100% { filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6)); } 50% { filter: drop-shadow(0 0 40px rgba(255, 215, 0, 1)); } }
+                    @keyframes ritualFadeIn { from { opacity: 0; transform: translateY(30px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
+                    @keyframes phaseCircle { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+                    @keyframes sindoorStroke { from { width: 0; opacity: 0; } to { width: 100%; opacity: 1; } }
+                    @keyframes mangalsutraSlide { from { top: -100px; opacity: 0; } to { top: 50%; opacity: 1; } }
+                    @keyframes finalBurst { 0% { transform: scale(0) rotate(0deg); opacity: 0; } 50% { transform: scale(1.2) rotate(180deg); opacity: 1; } 100% { transform: scale(1) rotate(360deg); opacity: 1; } }
+                    @keyframes emberRise { 0% { transform: translateY(0) scale(1); opacity: 1; } 100% { transform: translateY(-150px) scale(0.5); opacity: 0; } }
+                    @keyframes dholBounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+                `;
+                document.head.appendChild(style);
+            }
+        }
+        
+        // WEDDING RITUALS SCENE ENGINE
+        function showWeddingRituals(container) {
+            let currentRitual = 0;
+            
+            const rituals = [
+                {
+                    name: 'Baraat - The Groom Arrives',
+                    icon: '🚩',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 140, 0, 0.3), rgba(255, 69, 0, 0.2), #1a1a2e)',
+                    dialogue: [
+                        '"I came with joy, with excitement…"',
+                        '"and with the feeling that I am finally going to meet my forever."'
+                    ],
+                    showGroomPhoto: true,
+                    animations: ['dholBounce', 'confetti']
+                },
+                {
+                    name: 'The Bride\'s Grand Entrance',
+                    icon: '👑',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 182, 193, 0.4), rgba(255, 105, 180, 0.3), #1a1a2e)',
+                    dialogue: [
+                        '"And then… she walked in."',
+                        '"The moment I saw her…"',
+                        '"the world paused."'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    animations: ['petalRain', 'spotlight', 'characterGlow']
+                },
+                {
+                    name: 'Jai Mala - Exchanging Garlands',
+                    icon: '🌺',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.3), rgba(255, 193, 7, 0.2), #1a1a2e)',
+                    dialogue: [
+                        '"Two hearts… officially choosing each other."'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    animations: ['garlandDrop', 'flowerBurst']
+                },
+                {
+                    name: 'Kanyadaan - Sacred Blessing',
+                    icon: '🙏',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 248, 220, 0.4), rgba(255, 228, 181, 0.3), #1a1a2e)',
+                    dialogue: [
+                        '"With blessings…"',
+                        '"our lives are bound with love, trust and destiny."'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    animations: ['diyaGlow', 'blessingSparks']
+                },
+                {
+                    name: 'Agni Sakshi - Sacred Fire Ceremony',
+                    icon: '🔥',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 69, 0, 0.4), rgba(255, 140, 0, 0.3), #1a1a2e)',
+                    dialogue: [
+                        '"With fire as witness…"',
+                        '"we promise to walk together"',
+                        '"in every joy and every storm."'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    showFire: true,
+                    animations: ['fireFlicker', 'circleRotate', 'emberRise']
+                },
+                {
+                    name: 'Saat Pheras - Seven Sacred Vows',
+                    icon: '🌟',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 215, 0, 0.5), rgba(255, 165, 0, 0.4), #1a1a2e)',
+                    dialogue: [
+                        '💕 We promise nourishment & togetherness',
+                        '💪 We promise strength & health',
+                        '🌈 We promise wealth & happiness',
+                        '🤝 We promise mutual respect',
+                        '💗 We promise love & prosperity',
+                        '🔒 We promise loyalty',
+                        '✨ We promise a lifetime of friendship'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    showFire: true,
+                    animations: ['phaseCircle', 'goldenParticles']
+                },
+                {
+                    name: 'Sindoor & Mangalsutra',
+                    icon: '💄',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(220, 20, 60, 0.4), rgba(255, 105, 180, 0.3), #1a1a2e)',
+                    dialogue: [
+                        '"From this moment…"',
+                        '"she is mine, and I am hers."',
+                        '"Forever."'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    animations: ['sindoorStroke', 'mangalsutraSlide', 'brideGlow']
+                },
+                {
+                    name: 'The New Beginning',
+                    icon: '💞',
+                    bgGradient: 'radial-gradient(circle at 50% 50%, rgba(255, 107, 157, 0.6), rgba(255, 182, 193, 0.4), #1a1a2e)',
+                    dialogue: [
+                        '"This is how I imagine us…"',
+                        '"You. Me. Under the sacred fire."',
+                        '"Beginning our forever."',
+                        '💞 Our love story has only begun 💞'
+                    ],
+                    showBridePhoto: true,
+                    showGroomPhoto: true,
+                    animations: ['finalBurst', 'heavyPetals', 'heartOutline', 'fireworks']
+                }
+            ];
+            
+            function showRitual(index) {
+                if (index >= rituals.length) {
+                    // End of wedding - return to main flow
+                    const closeBtn = document.createElement('button');
+                    closeBtn.textContent = 'Return to Birthday 💕';
+                    closeBtn.style.cssText = `
+                        position: fixed;
+                        bottom: 40px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        padding: 20px 50px;
+                        font-family: 'Dancing Script', cursive;
+                        font-size: 28px;
+                        color: white;
+                        background: linear-gradient(145deg, #ff6b9d, #c9184a);
+                        border: none;
+                        border-radius: 50px;
+                        cursor: pointer;
+                        box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+                        z-index: 10000;
+                        transition: all 0.3s ease;
+                    `;
+                    closeBtn.onmouseover = () => closeBtn.style.transform = 'translateX(-50%) scale(1.1)';
+                    closeBtn.onmouseout = () => closeBtn.style.transform = 'translateX(-50%) scale(1)';
+                    closeBtn.onclick = () => {
+                        const overlay = document.getElementById('wedding-overlay');
+                        overlay.style.opacity = '0';
+                        setTimeout(() => overlay.remove(), 1000);
+                    };
+                    document.body.appendChild(closeBtn);
+                    return;
+                }
+                
+                const ritual = rituals[index];
+                container.innerHTML = '';
+                
+                // Create ritual scene
+                const scene = document.createElement('div');
+                scene.style.cssText = `
+                    width: 100%;
+                    height: 100%;
+                    background: ${ritual.bgGradient};
+                    position: relative;
+                    overflow: hidden;
+                    animation: ritualFadeIn 1.5s ease-out;
+                `;
+                
+                // Add background animations layer
+                const bgAnimLayer = document.createElement('div');
+                bgAnimLayer.style.cssText = `
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    pointer-events: none;
+                `;
+                scene.appendChild(bgAnimLayer);
+                
+                // Petal rain
+                if (ritual.animations.includes('petalRain') || ritual.animations.includes('heavyPetals')) {
+                    const petalCount = ritual.animations.includes('heavyPetals') ? 80 : 40;
+                    for (let i = 0; i < petalCount; i++) {
+                        const petal = document.createElement('div');
+                        const petalEmojis = ['🌸', '🌺', '🌹', '🌷'];
+                        petal.textContent = petalEmojis[Math.floor(Math.random() * petalEmojis.length)];
+                        petal.style.cssText = `
+                            position: absolute;
+                            left: ${Math.random() * 100}%;
+                            top: -20px;
+                            font-size: ${Math.random() * 20 + 15}px;
+                            animation: petalFall ${Math.random() * 5 + 5}s linear infinite;
+                            animation-delay: ${Math.random() * 5}s;
+                            opacity: ${Math.random() * 0.5 + 0.5};
+                        `;
+                        bgAnimLayer.appendChild(petal);
+                    }
+                }
+                
+                // Fire embers
+                if (ritual.animations.includes('emberRise')) {
+                    for (let i = 0; i < 30; i++) {
+                        const ember = document.createElement('div');
+                        ember.style.cssText = `
+                            position: absolute;
+                            left: ${45 + Math.random() * 10}%;
+                            bottom: 40%;
+                            width: ${Math.random() * 4 + 2}px;
+                            height: ${Math.random() * 4 + 2}px;
+                            background: rgba(255, 140, 0, ${Math.random() * 0.8 + 0.2});
+                            border-radius: 50%;
+                            animation: emberRise ${Math.random() * 3 + 2}s ease-out infinite;
+                            animation-delay: ${Math.random() * 2}s;
+                        `;
+                        bgAnimLayer.appendChild(ember);
+                    }
+                }
+                
+                // Golden particles
+                if (ritual.animations.includes('goldenParticles')) {
+                    for (let i = 0; i < 50; i++) {
+                        const particle = document.createElement('div');
+                        particle.textContent = '✨';
+                        particle.style.cssText = `
+                            position: absolute;
+                            left: ${Math.random() * 100}%;
+                            top: ${Math.random() * 100}%;
+                            font-size: ${Math.random() * 15 + 10}px;
+                            animation: float ${Math.random() * 4 + 3}s ease-in-out infinite;
+                            animation-delay: ${Math.random() * 2}s;
+                            opacity: ${Math.random() * 0.7 + 0.3};
+                        `;
+                        bgAnimLayer.appendChild(particle);
+                    }
+                }
+                
+                // Title
+                const title = document.createElement('div');
+                title.style.cssText = `
+                    position: absolute;
+                    top: 8%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    text-align: center;
+                    z-index: 10;
+                    animation: fadeInUp 1.5s ease-out;
+                `;
+                title.innerHTML = `
+                    <div style="font-size: 80px; margin-bottom: 20px; animation: ${ritual.animations.includes('dholBounce') ? 'dholBounce 0.6s ease-in-out infinite' : 'pulse 2s ease-in-out infinite'};">${ritual.icon}</div>
+                    <h2 style="font-family: 'Dancing Script', cursive; color: var(--gold); font-size: 48px; text-shadow: 0 0 30px rgba(255, 215, 0, 0.8); margin: 0;">${ritual.name}</h2>
+                `;
+                scene.appendChild(title);
+                
+                // Characters container
+                const charContainer = document.createElement('div');
+                charContainer.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    gap: ${ritual.showFire ? '100px' : '80px'};
+                    z-index: 5;
+                `;
+                
+                if (ritual.showGroomPhoto) {
+                    const groomDiv = document.createElement('div');
+                    groomDiv.style.cssText = `
+                        animation: ${ritual.animations.includes('characterGlow') ? 'characterGlow 2s ease-in-out infinite' : 'fadeInScale 1.5s ease-out'};
+                    `;
+                    groomDiv.innerHTML = `
+                        <div style="width: 200px; height: 200px; border-radius: ${ritual.name.includes('Jai Mala') ? '50%' : '20px'}; overflow: hidden; border: 5px solid var(--gold); box-shadow: 0 0 40px rgba(255, 215, 0, 0.6); ${ritual.animations.includes('mandapGlow') ? 'animation: mandapGlow 2s ease-in-out infinite;' : ''}">
+<img src="a12.jpg" alt="Memory" class="memory-img" style="
+    width: 100%;"
+>                        </div>
+                    `;
+                    charContainer.appendChild(groomDiv);
+                }
+                
+                if (ritual.showFire) {
+                    const fireDiv = document.createElement('div');
+                    fireDiv.style.cssText = `
+                        font-size: 120px;
+                        animation: fireFlicker 1.5s ease-in-out infinite;
+                        filter: drop-shadow(0 0 30px rgba(255, 69, 0, 0.8));
+                    `;
+                    fireDiv.textContent = '🔥';
+                    charContainer.appendChild(fireDiv);
+                }
+                
+                if (ritual.showBridePhoto) {
+                    const brideDiv = document.createElement('div');
+                    brideDiv.style.cssText = `
+                        animation: ${ritual.animations.includes('characterGlow') ? 'characterGlow 2s ease-in-out infinite 0.5s' : 'fadeInScale 1.5s ease-out 0.5s backwards'};
+                        position: relative;
+                    `;
+                    brideDiv.innerHTML = `
+                        <div style="width: 200px; height: 200px; border-radius: ${ritual.name.includes('Jai Mala') ? '50%' : '20px'}; overflow: hidden; border: 5px solid var(--blush); box-shadow: 0 0 40px rgba(248, 200, 220, 0.6); ${ritual.animations.includes('mandapGlow') ? 'animation: mandapGlow 2s ease-in-out infinite 0.5s;' : ''}">
+<img src="a11.jpg" alt="Memory" class="memory-img"style="
+    width: 100%;"
+>                        </div>
+                    `;
+                    
+                    // Sindoor effect
+                    if (ritual.animations.includes('sindoorStroke')) {
+                        setTimeout(() => {
+                            const sindoor = document.createElement('div');
+                            sindoor.style.cssText = `
+                                position: absolute;
+                                top: 15%;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                width: 0;
+                                height: 3px;
+                                background: linear-gradient(90deg, transparent, #DC143C, transparent);
+                                border-radius: 2px;
+                                animation: sindoorStroke 2s ease-out forwards;
+                                box-shadow: 0 0 10px #DC143C;
+                            `;
+                            brideDiv.appendChild(sindoor);
+                        }, 1000);
+                    }
+                    
+                    // Mangalsutra effect
+                    if (ritual.animations.includes('mangalsutraSlide')) {
+                        setTimeout(() => {
+                            const mangalsutra = document.createElement('div');
+                            mangalsutra.style.cssText = `
+                                position: absolute;
+                                top: -100px;
+                                left: 50%;
+                                transform: translateX(-50%);
+                                font-size: 40px;
+                                animation: mangalsutraSlide 2s ease-out 1s forwards;
+                                filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8));
+                            `;
+                            mangalsutra.textContent = '📿';
+                            brideDiv.appendChild(mangalsutra);
+                        }, 500);
+                    }
+                    
+                    charContainer.appendChild(brideDiv);
+                }
+                
+                scene.appendChild(charContainer);
+                
+                // Garland animation
+                if (ritual.animations.includes('garlandDrop')) {
+                    setTimeout(() => {
+                        const garland1 = document.createElement('div');
+                        garland1.style.cssText = `
+                            position: absolute;
+                            top: 35%;
+                            left: 30%;
+                            font-size: 60px;
+                            animation: garlandDrop 1.5s ease-out forwards;
+                            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+                        `;
+                        garland1.textContent = '🌺';
+                        scene.appendChild(garland1);
+                        
+                        const garland2 = document.createElement('div');
+                        garland2.style.cssText = `
+                            position: absolute;
+                            top: 35%;
+                            right: 30%;
+                            font-size: 60px;
+                            animation: garlandDrop 1.5s ease-out 0.3s backwards;
+                            filter: drop-shadow(0 0 20px rgba(255, 215, 0, 0.6));
+                        `;
+                        garland2.textContent = '🌺';
+                        scene.appendChild(garland2);
+                    }, 1000);
+                }
+                
+                // Circling fire animation
+                if (ritual.animations.includes('circleRotate') || ritual.animations.includes('phaseCircle')) {
+                    const circle = document.createElement('div');
+                    circle.style.cssText = `
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        width: 400px;
+                        height: 400px;
+                        border: 3px dashed rgba(255, 215, 0, 0.5);
+                        border-radius: 50%;
+                        animation: phaseCircle ${ritual.name.includes('Saat Pheras') ? '21s' : '15s'} linear infinite;
+                        z-index: 3;
+                    `;
+                    scene.appendChild(circle);
+                }
+                
+                // Heart outline for final scene
+                if (ritual.animations.includes('heartOutline')) {
+                    const heart = document.createElement('div');
+                    heart.style.cssText = `
+                        position: absolute;
+                        top: 50%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                        font-size: 500px;
+                        color: transparent;
+                        text-shadow: 0 0 20px rgba(255, 107, 157, 0.6);
+                        animation: finalBurst 2s ease-out 1s backwards;
+                        z-index: 4;
+                    `;
+                    heart.textContent = '💕';
+                    scene.appendChild(heart);
+                }
+                
+                // Dialogue box
+                const dialogueBox = document.createElement('div');
+                dialogueBox.style.cssText = `
+                    position: absolute;
+                    bottom: 15%;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    width: 80%;
+                    max-width: 900px;
+                    background: rgba(0, 0, 0, 0.8);
+                    backdrop-filter: blur(15px);
+                    padding: 40px;
+                    border-radius: 25px;
+                    text-align: center;
+                    z-index: 10;
+                    border: 2px solid rgba(255, 215, 0, 0.3);
+                    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+                    animation: fadeInUp 1.5s ease-out 0.8s backwards;
+                `;
+                
+                let dialogueHTML = '';
+                ritual.dialogue.forEach((line, i) => {
+                    const isLast = i === ritual.dialogue.length - 1 && ritual.name.includes('Beginning');
+                    const fontSize = isLast ? '42px' : (ritual.name.includes('Saat Pheras') ? '22px' : '26px');
+                    const fontFamily = isLast ? 'Dancing Script' : 'Patrick Hand';
+                    const color = isLast ? 'var(--gold)' : 'white';
+                    const animation = isLast ? 'animation: textGlowIntense 2s ease-in-out infinite;' : '';
+                    
+                    dialogueHTML += `<p style="font-family: '${fontFamily}', cursive; color: ${color}; font-size: ${fontSize}; margin: ${ritual.name.includes('Saat Pheras') ? '12px' : '18px'} 0; line-height: 1.6; text-shadow: ${isLast ? '0 0 30px rgba(255, 215, 0, 0.8)' : '2px 2px 4px rgba(0, 0, 0, 0.7)'}; ${animation}">${line}</p>`;
+                });
+                
+                dialogueBox.innerHTML = dialogueHTML;
+                scene.appendChild(dialogueBox);
+                
+                // Next button
+                const nextBtn = document.createElement('button');
+                nextBtn.textContent = index < rituals.length - 1 ? 'Next Ritual ✨' : 'Complete Wedding 💕';
+                nextBtn.style.cssText = `
+                    position: absolute;
+                    bottom: 5%;
+                    right: 5%;
+                    padding: 18px 45px;
+                    font-family: 'Dancing Script', cursive;
+                    font-size: 26px;
+                    color: white;
+                    background: linear-gradient(145deg, #ff6b9d, #c9184a);
+                    border: none;
+                    border-radius: 50px;
+                    cursor: pointer;
+                    box-shadow: 0 10px 30px rgba(255, 107, 157, 0.5);
+                    z-index: 20;
+                    transition: all 0.3s ease;
+                    animation: fadeInUp 1.5s ease-out 1.5s backwards;
+                `;
+                
+                nextBtn.onmouseover = () => {
+                    nextBtn.style.transform = 'scale(1.1) rotate(-2deg)';
+                    nextBtn.style.boxShadow = '0 15px 40px rgba(255, 107, 157, 0.8)';
+                };
+                
+                nextBtn.onmouseout = () => {
+                    nextBtn.style.transform = 'scale(1)';
+                    nextBtn.style.boxShadow = '0 10px 30px rgba(255, 107, 157, 0.5)';
+                };
+                
+                nextBtn.onclick = () => {
+    scene.style.transition = 'opacity 1s ease-out, transform 1s ease-out';
+    scene.style.opacity = '0';
+    scene.style.transform = 'scale(0.95)';
+
+    setTimeout(() => {
+        if (index < rituals.length - 1) {
+            // Go to next ritual
+            showRitual(index + 1);
+        } else {
+            // Go to ending section
+            showEndingSection();
+        }
+    }, 1000);
+};
+
+                
+                scene.appendChild(nextBtn);
+                container.appendChild(scene);
+            }
+            
+            showRitual(0);
+        }
+        
+        // Remove auto-transition - user controls with Next button
+        
+        // WINDOW RESIZE
+        window.addEventListener('resize', () => {
+            sparklesCanvas.width = window.innerWidth;
+            sparklesCanvas.height = window.innerHeight;
+        });
+    </script>
+</body>
+</html>
+
